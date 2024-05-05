@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Practice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f3f3f3;
+        }
+        .solution-container {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            
+        }
+        .solution {
+            font-size: 24px;
+            color: #333;
+            line-height: 1.6;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #96b84c;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 130px;
+            height: 45px
+
+            
+        }
+        .solution:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .button-container {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+        .next-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .next-button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Math Practice</h1>
+    <div class="solution-container">
+        <div class="solution">1 + 1 = 2</div>
+        <div class="solution">2 + 3 = 5</div>
+        <div class="solution">4 - 2 = 2</div>
+        <div class="solution">5 - 3 = 2</div>
+        <div class="solution">3 + 4 = 7</div>
+        <div class="solution">6 - 1 = 5</div>
+        <div class="solution">2 + 2 = 4</div>
+        <div class="solution">7 - 5 = 2</div>
+        <div class="solution">5 + 5 = 10</div>
+        <div class="solution">9 - 4 = 5</div>
+        <div class="solution">6 + 4 = 10</div>
+        <div class="solution">8 - 3 = 5</div>
+        <div class="solution">4 + 6 = 10</div>
+        <div class="solution">9 - 2 = 7</div>
+        <div class="solution">7 + 3 = 10</div>
+        <div class="solution">8 - 1 = 7</div>
+        <div class="solution">3 + 6 = 9</div>
+        <div class="solution">5 - 1 = 4</div>
+    </div>
+    <div class="button-container">
+        <button class="next-button" onclick="redirectToSolution()">Next</button>
+    </div>
+
+    <script>
+        function redirectToSolution() {
+            window.location.href = "mul table.html";
+        }
+    </script>
+</body>
+</html>

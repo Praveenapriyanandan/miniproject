@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IQ Test Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .message-container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="message-container">
+    <h2>CONGRATULATIONS! YOU COMPLETED THE COURSE</h2>
+    <p>Do you want to do the test again?</p>
+    <button onclick="redirectToAssessment()">YES</button>
+    <button onclick="redirectToThankYou()">NO</button>
+</div>
+
+<script>
+    function redirectToAssessment() {
+        window.location.href = 'assessment.html';
+    }
+
+    function redirectToThankYou() {
+        window.location.href = 'thankyou.html';
+    }
+</script>
+
+</body>
+</html>

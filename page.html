@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Test - Page 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .game-board {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .card {
+            width: 250px; /* Adjust card width */
+            height: 250px; /* Adjust card height */
+            background-color: #eee;
+            border: 2px solid #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .card img {
+            width: 250px; /* Adjust image width */
+            height: 250px; /* Adjust image height */
+            object-fit: cover; /* Ensure the image covers the entire space */
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Memory Test</h1>
+    <p>Remember the pictures!</p>
+    <div class="game-board" id="game-board">
+        <!-- Cards will be dynamically generated here -->
+    </div>
+
+    <script>
+        const pictures = ['a.jpeg', 'b.jpg', 'c.jpg', 'd.jpg', 'e.jpeg', 'f.jpeg'];
+
+        // Randomly select 6 pictures
+        const selectedPictures = pictures.sort(() => Math.random() - 0.5).slice(0, 6);
+
+        // Create card elements and append to game board
+        const gameBoard = document.getElementById('game-board');
+        selectedPictures.forEach((picture, index) => {
+            const card = document.createElement('div');
+            card.classList.add('card');
+            card.innerHTML = `<img src="${picture}" alt="Picture ${index + 1}">`;
+            gameBoard.appendChild(card);
+        });
+
+        // Hide pictures after 15 seconds and redirect to the next page
+        setTimeout(function() {
+            window.location.href = 'page2.html';
+        }, 20000);
+    </script>
+</body>
+</html>

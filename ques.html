@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f3f3f3;
+        }
+        .question-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .question {
+            font-size: 25px;
+            color: #0c775b;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-align: left; /* Adjust alignment */
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            color:rgb(87, 87, 4)
+        }
+        .option {
+            margin-bottom: 10px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="question-container">
+        <h1>Answer the Questions</h1>
+        <div class="question">
+            <p>1. What is the name of the bear in the story?</p>
+            <div class="options">
+                <label class="option">
+                    <input type="radio" name="q1" value="a"> a) Tommy
+                </label>
+                <label class="option">
+                    <input type="radio" name="q1" value="b"> b) Benny
+                </label>
+                <label class="option">
+                    <input type="radio" name="q1" value="c"> c) Bobby
+                </label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>2. What did Benny find stuck in the bush?</p>
+            <div class="options">
+                <label class="option">
+                    <input type="radio" name="q2" value="a"> a) A little rabbit
+                </label>
+                <label class="option">
+                    <input type="radio" name="q2" value="b"> b) A little squirrel
+                </label>
+                <label class="option">
+                    <input type="radio" name="q2" value="c"> c) A little bird
+                </label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>3. What time of day did Benny hear a small voice crying for help?</p>
+            <div class="options">
+                <label class="option">
+                    <input type="radio" name="q3" value="a"> a) Morning
+                </label>
+                <label class="option">
+                    <input type="radio" name="q3" value="b"> b) Afternoon
+                </label>
+                <label class="option">
+                    <input type="radio" name="q3" value="c"> c) Evening
+                </label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>4. What did Benny do when he found the rabbit stuck in the bush?</p>
+            <div class="options">
+                <label class="option">
+                    <input type="radio" name="q4" value="a"> a) He ignored it
+                </label>
+                <label class="option">
+                    <input type="radio" name="q4" value="b"> b) He gently lifted the branches and helped the rabbit escape
+                </label>
+                <label class="option">
+                    <input type="radio" name="q4" value="c"> c) He ran away
+                </label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>5. How did the rabbit feel after Benny helped him?</p>
+            <div class="options">
+                <label class="option">
+                    <input type="radio" name="q5" value="a"> a) Angry
+                </label>
+                <label class="option">
+                    <input type="radio" name="q5" value="b"> b) Grateful
+                </label>
+                <label class="option">
+                    <input type="radio" name="q5" value="c"> c) Sad
+                </label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>6. What did Benny feel after helping the rabbit?</p>
+            <div class="options">
+                <label class="option">
+                    <input type="radio" name="q6" value="a"> a) Sad
+                </label>
+                <label class="option">
+                    <input type="radio" name="q6" value="b"> b) Proud
+                </label>
+                <label class="option">
+                    <input type="radio" name="q6" value="c"> c) Angry
+                </label>
+            </div>
+        </div>
+        
+        <button class="button" onclick="submitAnswers()">Submit Answers</button>
+    </div>
+
+    <script>
+        function submitAnswers() {
+            // Fetch user's answers
+            const q1 = document.querySelector('input[name="q1"]:checked');
+            const q2 = document.querySelector('input[name="q2"]:checked');
+            const q3 = document.querySelector('input[name="q3"]:checked');
+            const q4 = document.querySelector('input[name="q4"]:checked');
+            const q5 = document.querySelector('input[name="q5"]:checked');
+            const q6 = document.querySelector('input[name="q6"]:checked');
+
+            // Check if all questions are answered
+            if (!q1 || !q2 || !q3 || !q4 || !q5 || !q6) {
+                alert('Please answer all questions.');
+                return;
+            }
+
+            // Compare answers
+            const correctAnswers = ['b', 'a', 'a', 'b', 'b', 'b'];
+            const userAnswers = [q1.value, q2.value, q3.value, q4.value, q5.value, q6.value];
+          
+            let score = 0;
+            for (let i = 0; i < correctAnswers.length; i++) {
+                if (userAnswers[i] === correctAnswers[i]) {
+                    score++;
+                }
+            }
+
+            // Display score
+            alert(`You got ${score} out of ${correctAnswers.length} correct!`);
+            window.location.href = "assessment.html";
+        }
+    </script>
+</body>
+</html>

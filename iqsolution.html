@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IQ Test for Kids</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: rgb(123, 167, 167);
+        }
+        .question-container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .message {
+            font-size: 16px;
+            color: #ff0000;
+            display: none;
+        }
+        .success-message {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+<div class="question-container" id="question1">
+    <h2>Question 1:</h2>
+    <p>What color is a banana?</p>
+    <ul>
+        <li><button onclick="checkAnswer('question1', 'yellow')">Yellow</button></li>
+        <li><button onclick="checkAnswer('question1', 'yellow')">Red</button></li>
+        <li><button onclick="checkAnswer('question1', 'yellow')">Green</button></li>
+        <li><button onclick="checkAnswer('question1', 'yellow')">Blue</button></li>
+    </ul>
+    <div class="message" id="message1"></div>
+</div>
+
+<div class="question-container" id="question2" style="display: none;">
+    <h2>Question 2:</h2>
+    <p>How many legs does a dog have?</p>
+    <ul>
+        <li><button onclick="checkAnswer('question2', 'four')">Four</button></li>
+        <li><button onclick="checkAnswer('question2', 'four')">Two</button></li>
+        <li><button onclick="checkAnswer('question2', 'four')">Six</button></li>
+        <li><button onclick="checkAnswer('question2', 'four')">Eight</button></li>
+    </ul>
+    <div class="message" id="message2"></div>
+</div>
+
+<!-- Add more questions as needed -->
+<div class="question-container" id="question3" style="display: none;">
+    <h2>Question 3:</h2>
+    <p>What is 2 + 2?</p>
+    <ul>
+        <li><button onclick="checkAnswer('question3', 'four')">Four</button></li>
+        <li><button onclick="checkAnswer('question3', 'four')">Two</button></li>
+        <li><button onclick="checkAnswer('question3', 'four')">Six</button></li>
+        <li><button onclick="checkAnswer('question3', 'four')">Eight</button></li>
+    </ul>
+    <div class="message" id="message3"></div>
+</div>
+
+<div class="question-container" id="question4" style="display: none;">
+    <h2>Question 4:</h2>
+    <p>What is the capital of France?</p>
+    <ul>
+        <li><button onclick="checkAnswer('question4', 'paris')">Paris</button></li>
+        <li><button onclick="checkAnswer('question4', 'paris')">London</button></li>
+        <li><button onclick="checkAnswer('question4', 'paris')">Berlin</button></li>
+        <li><button onclick="checkAnswer('question4', 'paris')">Madrid</button></li>
+    </ul>
+    <div class="message" id="message4"></div>
+</div>
+
+<div class="question-container" id="question5" style="display: none;">
+    <h2>Question 5:</h2>
+    <p>What is the color of the sky?</p>
+    <ul>
+        <li><button onclick="checkAnswer('question5', 'blue')">Blue</button></li>
+        <li><button onclick="checkAnswer('question5', 'blue')">Red</button></li>
+        <li><button onclick="checkAnswer('question5', 'blue')">Green</button></li>
+        <li><button onclick="checkAnswer('question5', 'blue')">Yellow</button></li>
+    </ul>
+    <div class="message" id="message5"></div>
+</div>
+
+<div class="question-container" id="question6" style="display: none;">
+    <h2>Question 6:</h2>
+    <p>How many planets are there in the solar system?</p>
+    <ul>
+        <li><button onclick="checkAnswer('question6', 'eight')">Eight</button></li>
+        <li><button onclick="checkAnswer('question6', 'eight')">Six</button></li>
+        <li><button onclick="checkAnswer('question6', 'eight')">Ten</button></li>
+        <li><button onclick="checkAnswer('question6', 'eight')">Twelve</button></li>
+    </ul>
+    <div class="message" id="message6"></div>
+</div>
+
+<div class="question-container" id="question7" style="display: none;">
+    <h2>Question 7:</h2>
+    <p>What comes after Tuesday?</p>
+    <ul>
+        <li><button onclick="checkAnswer('question7', 'wednesday')">Wednesday</button></li>
+        <li><button onclick="checkAnswer('question7', 'wednesday')">Thursday</button></li>
+        <li><button onclick="checkAnswer('question7', 'wednesday')">Friday</button></li>
+        <li><button onclick="checkAnswer('question7', 'wednesday')">Saturday</button></li>
+    </ul>
+    <div class="message" id="message7"></div>
+</div>
+
+<div class="question-container" id="question8" style="display: none;">
+    <h2>Question 8:</h2>
+    <p>What is the opposite of 'hot'?</p>
+    <ul>
+        <li><button onclick="checkAnswer('question8', 'cold')">Cold</button></li>
+        <li><button onclick="checkAnswer('question8', 'cold')">Warm</button></li>
+        <li><button onclick="checkAnswer('question8', 'cold')">Cool</button></li>
+        <li><button onclick="checkAnswer('question8', 'cold')">Freezing</button></li>
+    </ul>
+    <div class="message" id="message8"></div>
+</div>
+
+<div class="question-container" id="question9" style="display: none;">
+    <h2>Question 9:</h2>
+    <p>What animal is known for swinging on trees?</p>
+    <ul>
+        <li><button onclick="checkAnswer('question9', 'monkey')">Monkey</button></li>
+        <li><button onclick="checkAnswer('question9', 'monkey')">Elephant</button></li>
+        <li><button onclick="checkAnswer('question9', 'monkey')">Lion</button></li>
+        <li><button onclick="checkAnswer('question9', 'monkey')">Tiger</button></li>
+    </ul>
+    <div class="message" id="message9"></div>
+</div>
+
+<div class="question-container" id="question10" style="display: none;">
+    <h2>Question 10:</h2>
+    <p>Which planet is closest to the Sun?</p>
+    <ul>
+        <li><button onclick="checkAnswer('question10', 'mercury')">Mercury</button></li>
+        <li><button onclick="checkAnswer('question10', 'mercury')">Venus</button></li>
+        <li><button onclick="checkAnswer('question10', 'mercury')">Earth</button></li>
+        <li><button onclick="checkAnswer('question10', 'mercury')">Mars</button></li>
+    </ul>
+    <div class="message" id="message10"></div>
+</div>
+
+<script>
+    function checkAnswer(currentQuestionId, correctAnswer) {
+        var selectedOption = event.target.textContent.toLowerCase();
+        var messageDiv = document.getElementById(currentQuestionId).querySelector('.message');
+        if (selectedOption === correctAnswer) {
+            messageDiv.textContent = "Congratulations! You selected the correct answer.";
+            messageDiv.classList.add('success-message');
+            document.getElementById(currentQuestionId).style.display = 'none';
+            var nextQuestionId = currentQuestionId.replace(/\d+/, function(match) { return parseInt(match) + 1; });
+            var nextQuestion = document.getElementById(nextQuestionId);
+            if (nextQuestion) {
+                nextQuestion.style.display = 'block';
+            } else {
+                window.location.href = "last.html";
+            }
+        } else {
+            messageDiv.textContent = "Incorrect! Try again.";
+            messageDiv.classList.remove('success-message');
+        }
+        messageDiv.style.display = 'block';
+    }
+</script>
+
+</body>
+</html>

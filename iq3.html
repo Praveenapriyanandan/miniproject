@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Shuffle Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #9370DB; /* Purple */
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #fff; /* White */
+            margin-top: 50px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .question-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            margin-top: 50px;
+            background-color: #9370DB; /* Purple */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .question-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            width: 80%;
+            background-color: #ffecb3; /* Bright Yellow */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .scrambled-word {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #ff0000; /* Red */
+        }
+
+        .options-box {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffecb3; /* Bright Yellow */
+        }
+
+        .option {
+            margin: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #00008B; /* Deep Blue */
+            color: #fff; /* White */
+            font-size: 18px;
+        }
+
+        .option:hover {
+            background-color: #0000CD; /* Darker Blue */
+        }
+
+        .correct {
+            background-color: #c3e6cb; /* Green */
+        }
+
+        .incorrect {
+            background-color: #f5c6cb; /* Red */
+        }
+
+        #result {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        #result.correct {
+            color: #28a745; /* Green */
+        }
+
+        #result.incorrect {
+            color: #dc3545; /* Red */
+        }
+    </style>
+</head>
+<body>
+    <h1>Word Shuffle Game</h1>
+    <div class="question-container" id="question-container"></div>
+    <div id="result"></div>
+
+    <script>
+        const questions = [
+            { scrambled: 'nmao', unscrambled: 'moan', options: ['moan', 'mano', 'mnao', 'naom'] },
+            { scrambled: 'rfaet', unscrambled: 'after', options: ['after', 'tarfe', 'aetfr', 'faret'] },
+            { scrambled: 'ghitn', unscrambled: 'night', options: ['night', 'thing', 'thign', 'tihng'] },
+            { scrambled: 'safet', unscrambled: 'feast', options: ['feast', 'teafs', 'tseaf', 'sefat'] },
+            { scrambled: 'pilam', unscrambled: 'limpa', options: ['limpa', 'milpa', 'pilma', 'lampi'] },
+            { scrambled: 'nawer', unscrambled: 'wearn', options: ['wearn', 'reawn', 'nawer', 'waner'] },
+            { scrambled: 'sorwb', unscrambled: 'brows', options: ['brows', 'sorwb', 'wrobs', 'bwros'] },
+            { scrambled: 'tcuhp', unscrambled: 'thcup', options: ['thcup', 'tcuhp', 'cutph', 'upcth'] },
+            { scrambled: 'nsiseu', unscrambled: 'issues', options: ['issues', 'issesu', 'sesius', 'uissse'] },
+            { scrambled: 'ognlra', unscrambled: 'anglor', options: ['anglor', 'gorlan', 'nolgra', 'granol'] }
+            // Add more questions here
+        ];
+
+        const questionContainer = document.getElementById('question-container');
+        const resultElement = document.getElementById('result');
+
+        let currentQuestionIndex = 0;
+
+        function displayQuestion() {
+            const question = questions[currentQuestionIndex];
+
+            const questionBox = document.createElement('div');
+            questionBox.classList.add('question-box');
+            questionBox.innerHTML = `
+                <div class="scrambled-word">${question.scrambled}</div>
+                <div class="options-box" id="options-${currentQuestionIndex}"></div>
+            `;
+            questionContainer.appendChild(questionBox);
+
+            const optionsContainer = document.getElementById(`options-${currentQuestionIndex}`);
+            question.options.forEach(option => {
+                const optionDiv = document.createElement('div');
+                optionDiv.classList.add('option');
+                optionDiv.textContent = option;
+                optionDiv.addEventListener('click', () => checkAnswer(option, question.unscrambled, optionDiv));
+                optionsContainer.appendChild(optionDiv);
+            });
+
+            questionContainer.style.display = 'flex';
+        }
+
+        function checkAnswer(selectedOption, correctAnswer, optionDiv) {
+            if (selectedOption === correctAnswer) {
+                resultElement.textContent = 'Correct!';
+                resultElement.classList.add('correct');
+                optionDiv.classList.add('correct');
+            } else {
+                resultElement.textContent = 'Incorrect.';
+                resultElement.classList.add('incorrect');
+                optionDiv.classList.add('incorrect');
+            }
+
+            setTimeout(() => {
+                resultElement.textContent = '';
+                resultElement.classList.remove('correct', 'incorrect');
+                questionContainer.innerHTML = '';
+                currentQuestionIndex++;
+                if (currentQuestionIndex < questions.length) {
+                    displayQuestion();
+                } else {
+                    questionContainer.style.display = 'none';
+                    resultElement.textContent = 'Game Over!';
+                    setTimeout(() => {
+                        window.location.href = 'score.html';
+                    }, 5000); // Redirect after 5 seconds
+                }
+            }, 1000);
+        }
+
+        displayQuestion();
+    </script>
+</body>
+</html>

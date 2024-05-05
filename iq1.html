@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find The Matches</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #game-board {
+            margin-top: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .card {
+            width: 180px;
+            height: 180px;
+            margin: 10px;
+            background-color: #eee;
+            border: 2px solid #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 38px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .card.flip {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Find The Matches Within 90 Seconds</h1>
+    <div id="game-board">
+        <!-- Cards will be dynamically generated here -->
+    </div>
+
+    <script>
+        // Card symbols for the game
+        const symbols = ['🍎', '🍌', '🍉', '🍇', '🍓', '🥭', '🍒', '🍊'];
+
+        // Duplicate symbols to create pairs
+        const cards = symbols.concat(symbols);
+
+        // Shuffle the cards array
+        cards.sort(() => Math.random() - 0.5);
+
+        // Create card elements and append to game board
+        const gameBoard = document.getElementById('game-board');
+        cards.forEach((symbol, index) => {
+            const card = document.createElement('div');
+            card.classList.add('card');
+            card.innerHTML = '<span class="hidden">' + symbol + '</span>';
+            card.dataset.symbol = symbol;
+            card.dataset.index = index;
+            gameBoard.appendChild(card);
+            card.addEventListener('click', flipCard);
+        });
+
+        let flippedCards = [];
+        let locked = false;
+
+        function flipCard() {
+            if (locked) return;
+            if (this === flippedCards[0]) return;
+
+            this.classList.add('flip');
+            this.style.transform = 'scale(1.1)'; // Pop up the card
+            flippedCards.push(this);
+
+            if (flippedCards.length === 2) {
+                locked = true;
+                setTimeout(checkMatch, 1000);
+            }
+        }
+
+        function checkMatch() {
+            if (flippedCards[0].dataset.symbol === flippedCards[1].dataset.symbol) {
+                const color = getRandomColor();
+                flippedCards.forEach(card => {
+                    card.removeEventListener('click', flipCard);
+                    card.style.backgroundColor = color;
+                });
+                // Check if all pairs are matched
+                if (document.querySelectorAll('.card').length === document.querySelectorAll('.flip').length) {
+                    // Redirect to iq2.html after 1 second
+                    setTimeout(function() {
+                        window.location.href = "iq2.html";
+                    }, 1000);
+                }
+            } else {
+                flippedCards.forEach(card => {
+                    card.classList.remove('flip');
+                    card.style.transform = 'scale(1)'; // Reset card size
+                });
+            }
+
+            flippedCards = [];
+            locked = false;
+        }
+
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        // Turn off the page after 90 seconds
+        setTimeout(function() {
+            document.body.innerHTML = "<div id='message'><h1>Time's up!</h1></div>";
+            // Redirect to iq2.html after 5 seconds of the times up text
+            setTimeout(function() {
+                window.location.href = "iq2.html";
+            }, 5000);
+        }, 60000); // 90 seconds in milliseconds
+    </script>
+</body>
+</html>

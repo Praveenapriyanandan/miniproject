@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Read for 30 Seconds</title>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: antiquewhite;
+        flex-direction: column; /* Align items in a column */
+    }
+
+    #paragraph {
+        display: none; /* Hide the paragraph by default */
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+        color: #570505;
+        margin: 50px; /* Add margin */
+        line-height: 1.5;
+    }
+
+    #timeUp {
+        display: none; /* Hide the "Time's up" message by default */
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+        color: #dc143c; /* Crimson color */
+    }
+
+    #question {
+        display: none; /* Hide the question and options by default */
+        margin-top: 50px;
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+        color: #000; /* Black color */
+    }
+
+    .option-btn {
+        margin: 10px;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<p id="paragraph">Once upon a time, in a magical forest, lived a group of friendly animals. There was a wise owl, a playful squirrel, and a shy deer. Every day, they would explore the forest, finding new adventures. One day, they discovered a hidden path leading to a mysterious cave. Curiosity sparked, they decided to venture inside, unaware of the surprises awaiting them.</p>
+<p id="timeUp">Time's up!</p>
+
+<div id="question">
+    <p style="color: #570505;">Did you finish the story?</p>
+    <input type="button" value="Yes" onclick="recordSubmission('Yes')" class="option-btn">
+    <input type="button" value="No" onclick="recordSubmission('No')" class="option-btn">
+</div>
+
+<script>
+    // Show the paragraph
+    document.getElementById("paragraph").style.display = "block";
+
+    // Set a timeout to hide the paragraph after 30 seconds
+    setTimeout(function(){
+        document.getElementById("paragraph").style.display = "none";
+        document.getElementById("timeUp").style.display = "block"; // Show the "Time's up" message
+        document.getElementById("question").style.display = "block"; // Show the question
+    }, 30000); // 30 seconds
+
+    // Function to record the submission
+    function recordSubmission(answer) {
+        // You can perform further actions here, such as sending the answer to a server for recording
+        alert("Your submission has been recorded. You answered: " + answer);
+        // Redirect to assessment.html
+        window.location.href = "assessment.html";
+    }
+</script>
+</body>
+</html>

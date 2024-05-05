@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Words A to Z</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f3f3f3;
+            padding: 20px;
+        }
+        .word {
+            font-size: 75px; /* Set font size */
+            margin: 5px; /* Add margin for spacing */
+            display: inline-block;
+            color: rgb(133, 8, 8); /* Set the color to purple */
+            font-family: 'Georgia', serif;
+            margin: 0 40px; 
+            margin-bottom: 20px; /* Add margin between rows */
+        }
+        h1 {
+            color: #0a0a0a; /* Set heading color to green */
+            font-family:Verdana, Geneva, Tahoma, sans-serif; /* Set heading font family */
+        }
+        .button-container {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: #0056b3; /* Blue button background color */
+        }
+        .go-to-memory-solution-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #211cb0;
+            background-color: #007bff; /* Blue button text color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .go-to-memory-solution-button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>READ THE WORDS LOUDLY</h1>
+    <div class="word">Apple</div>
+    <div class="word">Ball</div>
+    <div class="word">Cat</div>
+    <div class="word">Dog</div>
+    <div class="word">Elephant</div>
+    <div class="word">Fish</div>
+    <!-- Continue adding words -->
+    <div class="word">Giraffe</div>
+    <div class="word">Horse</div>
+    <div class="word">Icecream</div>
+    <div class="word">Juice</div>
+    <div class="word">Kite</div>
+    <div class="word">Lion</div>
+    <div class="word">Monkey</div>
+    <div class="word">Nest</div>
+    <div class="word">Orange</div>
+    <div class="word">Pen</div>
+    <div class="word">Queen</div>
+    <div class="word">Rose</div>
+    <div class="word">Sun</div>
+    <div class="word">Tree</div>
+    <div class="word">Umbrella</div>
+    <div class="word">Van</div>
+    <div class="word">Water</div>
+    <div class="word">X ray</div>
+    <div class="word">Yellow</div>
+    <div class="word">Zebra</div>
+    <div class="button-container">
+        <button class="go-to-memory-solution-button" onclick="redirectToSolution()">Go to Memory solution</button>
+    </div>
+
+    <script>
+        function redirectToSolution() {
+            window.location.href = "memsolution.html";
+        }
+    </script>
+</body>
+</html>

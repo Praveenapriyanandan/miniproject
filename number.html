@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Recognition</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f3f3f3;
+            position: relative; /* Added position relative to body */
+            min-height: 100vh; /* Ensures the button stays at the bottom */
+        }
+        .image-container {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .image {
+            width: 220px;
+            height: 220px;
+            margin: 10px;
+        }
+        .number {
+            font-size: 40px; /* Increased font size */
+            color: #111111;
+            margin-top: 5px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .row {
+            display: flex;
+        }
+        .button-container {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+        .next-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .next-button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Learn Numbers Through Pictures</h1>
+    <div class="image-container">
+        <div class="row">
+            <div>
+                <img class="image" src="1.jpeg" alt="1">
+                <div class="number">1</div>
+            </div>
+            <div>
+                <img class="image" src="2.jpeg" alt="2">
+                <div class="number">2</div>
+            </div>
+            <div>
+                <img class="image" src="3.jpeg" alt="3">
+                <div class="number">3</div>
+            </div>
+            <div>
+                <img class="image" src="4.jpeg" alt="4">
+                <div class="number">4</div>
+            </div>
+            <div>
+                <img class="image" src="5.jpeg" alt="5">
+                <div class="number">5</div>
+            </div>
+        </div>
+        <div class="row">
+            <div>
+                <img class="image" src="6.jpeg" alt="6">
+                <div class="number">6</div>
+            </div>
+            <div>
+                <img class="image" src="7.jpeg" alt="7">
+                <div class="number">7</div>
+            </div>
+            <div>
+                <img class="image" src="8.jpeg" alt="8">
+                <div class="number">8</div>
+            </div>
+            <div>
+                <img class="image" src="9.jpeg" alt="9">
+                <div class="number">9</div>
+            </div>
+        </div>
+    </div>
+    <div class="button-container">
+        <button class="next-button" onclick="redirectToSolution()">Next</button>
+    </div>
+
+    <script>
+        function redirectToSolution() {
+            window.location.href = "solution1.html";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Practice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f3f3f3;
+        }
+        .solution-container {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .solution {
+            font-size: 24px;
+            color: #333;
+            line-height: 1.6;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #dc89d7;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 130px;
+            height: 45px;
+        }
+        .solution:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .next-button {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: #f0f0f0;
+            color: #384fab;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .next-button:hover {
+            background-color: #3a2b77;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Math Practice</h1>
+    <div class="solution-container">
+        <div class="solution">2 &times; 1 = 2</div>
+        <div class="solution">2 &times; 3 = 6</div>
+        <div class="solution">4 &divide; 2 = 2</div>
+        <div class="solution">6 &divide; 3 = 2</div>
+        <div class="solution">3 &times; 4 = 12</div>
+        <div class="solution">6 &divide; 2 = 3</div>
+        <div class="solution">2 &times; 2 = 4</div>
+        <div class="solution">10 &divide; 5 = 2</div>
+        <div class="solution">5 &times; 2 = 10</div>
+        <div class="solution">15 &divide; 3 = 5</div>
+        <div class="solution">5 &times; 4 = 20</div>
+        <div class="solution">15 &divide; 3 = 5</div>
+        <div class="solution">2 &times; 6 = 12</div>
+        <div class="solution">18 &divide; 2 = 9</div>
+        <div class="solution">2 &times; 3 = 6</div>
+        <div class="solution">14 &divide; 2 = 7</div>
+        <div class="solution">3 &times; 3 = 9</div>
+        <div class="solution">8 &divide; 2 = 4</div>
+    </div>
+    <button class="next-button" onclick="redirectToMathTip()">Next</button>
+
+    <script>
+        function redirectToMathTip() {
+            window.location.href = "math tip.html";
+        }
+    </script>
+</body>
+</html>
